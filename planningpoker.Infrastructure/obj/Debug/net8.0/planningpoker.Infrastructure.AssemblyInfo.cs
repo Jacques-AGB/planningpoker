@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("planningpoker.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+84ad102369644035c429464765e123b7e48e1ad5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e61c2b3226a7ba9622342ce72b2e54c2de6e39ed")]
 [assembly: System.Reflection.AssemblyProductAttribute("planningpoker.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("planningpoker.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

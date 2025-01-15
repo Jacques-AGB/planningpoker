@@ -1,0 +1,12 @@
+C:\work\planningpoker\planningpoker.Domain\bin\Debug\net8.0\planningpoker.Domain.deps.json
+C:\work\planningpoker\planningpoker.Domain\bin\Debug\net8.0\planningpoker.Domain.dll
+C:\work\planningpoker\planningpoker.Domain\bin\Debug\net8.0\planningpoker.Domain.pdb
+C:\work\planningpoker\planningpoker.Domain\obj\Debug\net8.0\planningpoker.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\work\planningpoker\planningpoker.Domain\obj\Debug\net8.0\planningpoker.Domain.AssemblyInfoInputs.cache
+C:\work\planningpoker\planningpoker.Domain\obj\Debug\net8.0\planningpoker.Domain.AssemblyInfo.cs
+C:\work\planningpoker\planningpoker.Domain\obj\Debug\net8.0\planningpoker.Domain.csproj.CoreCompileInputs.cache
+C:\work\planningpoker\planningpoker.Domain\obj\Debug\net8.0\planningpoker.Domain.sourcelink.json
+C:\work\planningpoker\planningpoker.Domain\obj\Debug\net8.0\planningpoker.Domain.dll
+C:\work\planningpoker\planningpoker.Domain\obj\Debug\net8.0\refint\planningpoker.Domain.dll
+C:\work\planningpoker\planningpoker.Domain\obj\Debug\net8.0\planningpoker.Domain.pdb
+C:\work\planningpoker\planningpoker.Domain\obj\Debug\net8.0\ref\planningpoker.Domain.dll

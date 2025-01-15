@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\planningpoker.Presentation.Api.props" />
+</Project>

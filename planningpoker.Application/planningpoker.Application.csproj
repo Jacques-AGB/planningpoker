@@ -11,9 +11,23 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Features\Assignments\Queries\" />
+    <Folder Include="Features\Games\Commands\" />
+    <Folder Include="Features\Games\Queries\" />
+    <Folder Include="Features\Vote\" />
+    <Folder Include="Features\Role\Commands\" />
+    <Folder Include="Features\Role\Queries\" />
+    <Folder Include="Features\Rule\Commands\" />
+    <Folder Include="Features\Rule\Queries\" />
+    <Folder Include="Features\User\Commands\" />
+    <Folder Include="Features\User\Queries\" />
     <Folder Include="IServce\" />
-    <Folder Include="Features\" />
     <Folder Include="Service\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.4.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.1" />
   </ItemGroup>
 
 </Project>
