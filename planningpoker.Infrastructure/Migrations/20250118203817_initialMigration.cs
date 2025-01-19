@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace planningpoker.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class InitializingPostgreSqldb : Migration
+    public partial class initialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -37,7 +37,7 @@ namespace planningpoker.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Game",
+                name: "Games",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -48,9 +48,9 @@ namespace planningpoker.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Game", x => x.Id);
+                    table.PrimaryKey("PK_Games", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Game_Rules_RuleId",
+                        name: "FK_Games_Rules_RuleId",
                         column: x => x.RuleId,
                         principalTable: "Rules",
                         principalColumn: "Id",
@@ -63,17 +63,18 @@ namespace planningpoker.Infrastructure.Migrations
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Description = table.Column<string>(type: "text", nullable: false),
-                    Status = table.Column<int>(type: "integer", nullable: false),
-                    GameId = table.Column<Guid>(type: "uuid", nullable: true)
+                    GameId = table.Column<Guid>(type: "uuid", nullable: false),
+                    Status = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Assignments", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Assignments_Game_GameId",
+                        name: "FK_Assignments_Games_GameId",
                         column: x => x.GameId,
-                        principalTable: "Game",
-                        principalColumn: "Id");
+                        principalTable: "Games",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -89,9 +90,9 @@ namespace planningpoker.Infrastructure.Migrations
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Users_Game_GameId",
+                        name: "FK_Users_Games_GameId",
                         column: x => x.GameId,
-                        principalTable: "Game",
+                        principalTable: "Games",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -103,7 +104,7 @@ namespace planningpoker.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Vote",
+                name: "Votes",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -113,15 +114,15 @@ namespace planningpoker.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Vote", x => x.Id);
+                    table.PrimaryKey("PK_Votes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Vote_Assignments_AssignmentId",
+                        name: "FK_Votes_Assignments_AssignmentId",
                         column: x => x.AssignmentId,
                         principalTable: "Assignments",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Vote_Users_UserId",
+                        name: "FK_Votes_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
@@ -134,8 +135,8 @@ namespace planningpoker.Infrastructure.Migrations
                 column: "GameId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Game_RuleId",
-                table: "Game",
+                name: "IX_Games_RuleId",
+                table: "Games",
                 column: "RuleId");
 
             migrationBuilder.CreateIndex(
@@ -149,13 +150,13 @@ namespace planningpoker.Infrastructure.Migrations
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Vote_AssignmentId",
-                table: "Vote",
+                name: "IX_Votes_AssignmentId",
+                table: "Votes",
                 column: "AssignmentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Vote_UserId",
-                table: "Vote",
+                name: "IX_Votes_UserId",
+                table: "Votes",
                 column: "UserId");
         }
 
@@ -163,7 +164,7 @@ namespace planningpoker.Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Vote");
+                name: "Votes");
 
             migrationBuilder.DropTable(
                 name: "Assignments");
@@ -172,7 +173,7 @@ namespace planningpoker.Infrastructure.Migrations
                 name: "Users");
 
             migrationBuilder.DropTable(
-                name: "Game");
+                name: "Games");
 
             migrationBuilder.DropTable(
                 name: "Roles");

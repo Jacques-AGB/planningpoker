@@ -11,17 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Assignments\Queries\" />
-    <Folder Include="Features\Games\Commands\" />
-    <Folder Include="Features\Games\Queries\" />
-    <Folder Include="Features\Vote\" />
-    <Folder Include="Features\Role\Commands\" />
-    <Folder Include="Features\Role\Queries\" />
-    <Folder Include="Features\Rule\Commands\" />
-    <Folder Include="Features\Rule\Queries\" />
-    <Folder Include="Features\User\Commands\" />
-    <Folder Include="Features\User\Queries\" />
     <Folder Include="IServce\" />
+    <Folder Include="Requests\" />
     <Folder Include="Service\" />
   </ItemGroup>
 

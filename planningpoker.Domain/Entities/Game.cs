@@ -13,5 +13,5 @@ public class Game
     public virtual Rule Rule { get; set; }
     public int MaxPlayers { get; set; }
     public GameStatus Status { get; set; }
-    public ICollection<Assignment>? Assignments { get; set; }
+    public virtual ICollection<Assignment>? Assignments { get; set; }
 }

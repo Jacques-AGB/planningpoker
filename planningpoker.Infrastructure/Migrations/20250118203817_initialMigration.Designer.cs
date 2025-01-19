@@ -12,8 +12,8 @@ using planningpoker.Infrastructure.Persistence.PostgreSql;
 namespace planningpoker.Infrastructure.Migrations
 {
     [DbContext(typeof(PostgreSqlApplicationDbContext))]
-    [Migration("20250115180449_InitializingPostgreSqldb")]
-    partial class InitializingPostgreSqldb
+    [Migration("20250118203817_initialMigration")]
+    partial class initialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,7 +35,7 @@ namespace planningpoker.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid?>("GameId")
+                    b.Property<Guid>("GameId")
                         .HasColumnType("uuid");
 
                     b.Property<int>("Status")
@@ -71,7 +71,7 @@ namespace planningpoker.Infrastructure.Migrations
 
                     b.HasIndex("RuleId");
 
-                    b.ToTable("Game");
+                    b.ToTable("Games");
                 });
 
             modelBuilder.Entity("planningpoker.Domain.Entities.Role", b =>
@@ -154,14 +154,18 @@ namespace planningpoker.Infrastructure.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Vote");
+                    b.ToTable("Votes");
                 });
 
             modelBuilder.Entity("planningpoker.Domain.Entities.Assignment", b =>
                 {
-                    b.HasOne("planningpoker.Domain.Entities.Game", null)
+                    b.HasOne("planningpoker.Domain.Entities.Game", "Game")
                         .WithMany("Assignments")
-                        .HasForeignKey("GameId");
+                        .HasForeignKey("GameId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Game");
                 });
 
             modelBuilder.Entity("planningpoker.Domain.Entities.Game", b =>
